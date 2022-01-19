@@ -40,8 +40,9 @@ const Auth = () => {
   };
 
   const googleSuccess = async (res) => {
-    // const result = res?.profileObj;
-    // const token = res?.tokenId;
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+    console.log(token);
 
     // try {
     //   dispatch({ type: AUTH, data: { result, token } });
@@ -78,8 +79,8 @@ const Auth = () => {
           <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
             { isSignup ? 'Sign Up' : 'Sign In' }
           </Button>
-          {/* <GoogleLogin
-            clientId="564033717568-e5p23rhvcs4i6kffgsbci1d64r8hp6fn.apps.googleusercontent.com"
+          <GoogleLogin
+            clientId="645603913114-4jfc90e5sq084bbrif3riv6co465at07.apps.googleusercontent.com"
             render={(renderProps) => (
               <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
                 Google Sign In
@@ -88,7 +89,7 @@ const Auth = () => {
             onSuccess={googleSuccess}
             onFailure={googleError}
             cookiePolicy="single_host_origin"
-          /> */}
+          />
           <Grid container justify="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
