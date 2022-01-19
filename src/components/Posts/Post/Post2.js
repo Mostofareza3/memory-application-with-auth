@@ -18,7 +18,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 700,
+    width: "80%",
     bgcolor: 'background.paper',
     border: '1px solid #000',
     boxShadow: 24,
@@ -43,18 +43,18 @@ const Post2 = ({ post, setCurrentId }) => {
 
             </div>
             <div className="overlay">
-                <Typography sx={{marginRight: "10px"}} variant="p">Writer: {post.creator}</Typography>
+                <Typography sx={{marginRight: "10px"}} variant="body2">Writer: {post.creator}</Typography>
                 &nbsp;
                 &nbsp;
                 &nbsp;
                 <AccessTimeIcon  fontSize="small"/>
-                <Typography variant="p"> {moment(post.createdAt).fromNow()}</Typography>
+                <Typography variant="body2"> {moment(post.createdAt).fromNow()}</Typography>
             </div>
             {/* <div className={classes.overlay2}>
                
             </div> */}
          
-            <Typography className="book-name" variant="h5" gutterBottom>{post.title}</Typography>
+            <Typography className="book-name" variant="h6" >{post.title}</Typography>
             <CardContent>
                 <Typography color="textSecondary" variant="body2" component="p">Summary: <br /> {post.message.slice(0, 120)}...
                 </Typography>
@@ -78,11 +78,11 @@ const Post2 = ({ post, setCurrentId }) => {
                     </Modal>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={() => { dispatch(likePost(post._id)) }}>
+                {/* <Button size="small" color="primary" onClick={() => { dispatch(likePost(post._id)) }}>
                     <ThumbUpAltIcon fontSize="small" />
                     &nbsp; Like &nbsp;
                     {post.likeCount}
-                </Button>
+                </Button> */}
                 <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
                     <DeleteIcon fontSize="small" />
                     Delete

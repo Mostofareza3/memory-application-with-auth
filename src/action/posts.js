@@ -1,6 +1,7 @@
 import * as api from '../api';
 import { FETCH_ALL, UPDATE, DELETE, CREATE } from '../constants/actionTypes'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import cogoToast from 'cogo-toast';
 
 //sweet alert
 
@@ -22,17 +23,22 @@ export const getPosts = () => async (dispatch) => {
 
 export const createPost = (post) => async (dispatch) => {
     try {
+        cogoToast.loading('uploading... Please wait.');
         const { data } = await api.createPost(post);
-
         dispatch({ type: CREATE, payload: data });
     } catch (error) {
         console.log(error);
     }
+    cogoToast.success('upload successful.');
+
 };
 
 export const updatePost = (id, post) => async (dispatch) => {
     try {
+        cogoToast.loading('Updating...')
         const { data } = await api.updatePost(id, post);
+
+        cogoToast.success('Update successful.');
 
         dispatch({ type: UPDATE, payload: data })
     }
